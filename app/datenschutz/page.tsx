@@ -38,7 +38,6 @@ export default function DatenschutzPage() {
               <h2 className="text-xl font-semibold mb-3">2. Verantwortliche Stelle</h2>
               <div className="bg-muted/50 p-4 rounded-lg">
                 <p className="font-semibold">AVM e.U</p>
-                <p>
                 <p className="mt-2">
                   Telefon: +43 676 4344905
                   <br />
