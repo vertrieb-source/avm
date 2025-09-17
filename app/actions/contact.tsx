@@ -110,4 +110,45 @@ export async function submitContactForm(formData: FormData) {
       error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.",
     }
   }
+  async function sendLeadToPipedrive(formData: FormData) {
+  const API_TOKEN = "01e9696a770b7018d9529509f74abe4c92a334cd";
+  const personName = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const phone = formData.get("phone") as string;
+  const brand = formData.get("brand") as string;
+  const model = formData.get("model") as string;
+  const year = formData.get("year") as string;
+
+  // 1. Person erstellen, um ID zu bekommen
+  const personResponse = await fetch(`https://api.pipedrive.com/v1/persons?api_token=${API_TOKEN}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: personName,
+      email: email,
+      phone: phone,
+    }),
+  });
+  const personData = await personResponse.json();
+  const personId = personData.data.id;
+
+  // 2. Lead anlegen, mit Verknüpfung zur Person
+  const leadResponse = await fetch(`https://api.pipedrive.com/v1/leads?api_token=${API_TOKEN}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: `Fahrzeuganfrage: ${brand} ${model} (${year})`,
+      person_id: personId,
+      // Optional weitere Felder mappen mit "custom_fields"
+    }),
+  });
+  const leadData = await leadResponse.json();
+
+  if (!leadData.success) {
+    throw new Error("Lead konnte nicht erstellt werden");
+  }
+
+  return leadData;
+}
+
 }
