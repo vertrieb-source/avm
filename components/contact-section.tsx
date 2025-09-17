@@ -8,12 +8,14 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Upload, Phone, Mail, X, ImageIcon } from "lucide-react"
 import { submitContactForm } from "@/app/actions/contact"
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
+    countryCode: "+43",
     phone: "",
     email: "",
     brand: "",
@@ -28,6 +30,15 @@ export function ContactSection() {
   const [submitMessage, setSubmitMessage] = useState<{ type: "success" | "error"; text: string } | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const countryCodes = [
+    { code: "+43", country: "Österreich", flag: "🇦🇹" },
+    { code: "+49", country: "Deutschland", flag: "🇩🇪" },
+    { code: "+41", country: "Schweiz", flag: "🇨🇭" },
+    { code: "+39", country: "Italien", flag: "🇮🇹" },
+    { code: "+33", country: "Frankreich", flag: "🇫🇷" },
+    { code: "+44", country: "Großbritannien", flag: "🇬🇧" },
+  ]
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || [])
@@ -56,21 +67,45 @@ export function ContactSection() {
     setIsSubmitting(true)
     setSubmitMessage(null)
 
+    if (selectedFiles.length === 0) {
+      setSubmitMessage({ type: "error", text: "Bitte laden Sie mindestens ein Foto Ihres Fahrzeugs hoch." })
+      setIsSubmitting(false)
+      return
+    }
+
     try {
-      const formData = new FormData(e.currentTarget)
+      const formDataToSend = new FormData(e.currentTarget)
+
+      const fullPhoneNumber = `${formData.countryCode} ${formData.phone}`
+      formDataToSend.set("phone", fullPhoneNumber)
 
       // Add selected files to form data
       selectedFiles.forEach((file) => {
-        formData.append("photos", file)
+        formDataToSend.append("photos", file)
       })
 
-      const result = await submitContactForm(formData)
+      const result = await submitContactForm(formDataToSend)
 
       if (result.success) {
         setSubmitMessage({ type: "success", text: result.message })
         // Reset form
-        e.currentTarget.reset()
+        setFormData({
+          name: "",
+          countryCode: "+43",
+          phone: "",
+          email: "",
+          brand: "",
+          model: "",
+          year: "",
+          mileage: "",
+          message: "",
+          agbAccepted: false,
+          dsgvoAccepted: false,
+        })
         setSelectedFiles([])
+        if (fileInputRef.current) {
+          fileInputRef.current.value = ""
+        }
       } else {
         setSubmitMessage({ type: "error", text: result.error })
       }
@@ -136,15 +171,33 @@ export function ContactSection() {
                       </div>
                       <div>
                         <Label htmlFor="phone">Telefonnummer *</Label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleInputChange("phone", e.target.value)}
-                          required
-                          className="mt-1"
-                        />
+                        <div className="flex mt-1">
+                          <Select
+                            value={formData.countryCode}
+                            onValueChange={(value) => handleInputChange("countryCode", value)}
+                          >
+                            <SelectTrigger className="w-32">
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {countryCodes.map((country) => (
+                                <SelectItem key={country.code} value={country.code}>
+                                  {country.flag} {country.code}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <Input
+                            id="phone"
+                            name="phoneNumber"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) => handleInputChange("phone", e.target.value)}
+                            required
+                            className="ml-2 flex-1"
+                            placeholder="676 4344905"
+                          />
+                        </div>
                       </div>
                     </div>
 
@@ -200,7 +253,7 @@ export function ContactSection() {
                             name="year"
                             type="number"
                             min="1990"
-                            max="2024"
+                            max="2025"
                             value={formData.year}
                             onChange={(e) => handleInputChange("year", e.target.value)}
                             required
@@ -225,9 +278,13 @@ export function ContactSection() {
                     </div>
 
                     <div>
-                      <Label htmlFor="photos">Fahrzeugfotos</Label>
+                      <Label htmlFor="photos">Fahrzeugfotos *</Label>
                       <div
-                        className="mt-1 border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-primary/50 transition-colors"
+                        className={`mt-1 border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
+                          selectedFiles.length === 0
+                            ? "border-red-300 bg-red-50 hover:border-red-400"
+                            : "border-border hover:border-primary/50"
+                        }`}
                         onClick={() => fileInputRef.current?.click()}
                       >
                         <Upload className="h-8 w-8 text-muted-foreground mx-auto mb-2" />
@@ -235,7 +292,7 @@ export function ContactSection() {
                           Ziehen Sie Fotos hierher oder klicken Sie zum Auswählen
                         </p>
                         <p className="text-xs text-muted-foreground mt-1">
-                          Empfohlen: Außen- und Innenaufnahmen, max. 10 Fotos, je max. 10MB
+                          <strong>Pflichtfeld:</strong> Mindestens 1 Foto erforderlich, max. 10 Fotos, je max. 10MB
                         </p>
                         <input
                           ref={fileInputRef}
@@ -323,7 +380,9 @@ export function ContactSection() {
                       type="submit"
                       size="lg"
                       className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-                      disabled={isSubmitting || !formData.agbAccepted || !formData.dsgvoAccepted}
+                      disabled={
+                        isSubmitting || !formData.agbAccepted || !formData.dsgvoAccepted || selectedFiles.length === 0
+                      }
                     >
                       {isSubmitting ? "Wird gesendet..." : "Kostenlose Bewertung anfordern"}
                     </Button>

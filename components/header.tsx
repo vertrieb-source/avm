@@ -3,13 +3,26 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Phone, Mail } from "lucide-react"
+import { useRouter, usePathname } from "next/navigation"
 
 export function Header() {
+  const router = useRouter()
+  const pathname = usePathname()
+
   const scrollToSection = (sectionId: string) => {
+    if (pathname !== "/") {
+      router.push(`/#${sectionId}`)
+      return
+    }
+
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
+  }
+
+  const handleLogoClick = () => {
+    router.push("/")
   }
 
   return (
@@ -18,7 +31,9 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Image src="/assets/logo.png" alt="AVM Logo" width={120} height={40} className="h-10 w-auto" priority />
+            <button onClick={handleLogoClick} className="focus:outline-none">
+              <Image src="/assets/logo.png" alt="AVM Logo" width={120} height={40} className="h-10 w-auto" priority />
+            </button>
           </div>
 
           {/* Navigation */}
@@ -69,7 +84,8 @@ export function Header() {
             </div>
             <Button
               onClick={() => scrollToSection("kontakt")}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              style={{ backgroundColor: "#8b2f4c", color: "white" }}
+              className="hover:opacity-90 font-medium shadow-sm border-0"
             >
               Jetzt Auto verkaufen
             </Button>
