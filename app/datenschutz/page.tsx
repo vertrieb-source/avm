@@ -39,12 +39,6 @@ export default function DatenschutzPage() {
               <div className="bg-muted/50 p-4 rounded-lg">
                 <p className="font-semibold">AVM e.U</p>
                 <p>
-                  Musterstraße 123
-                  <br />
-                  1010 Wien
-                  <br />
-                  Österreich
-                </p>
                 <p className="mt-2">
                   Telefon: +43 676 4344905
                   <br />
