@@ -327,7 +327,7 @@ export function ContactSection() {
                       )}
                     </div>
 <div>
-                          <Label htmlFor="retail">Verkaufspreis *</Label>
+                          <Label htmlFor="retail">Wunschpreis *</Label>
                           <Input
                             id="retail"
                             name="retail"
