@@ -35,7 +35,10 @@ async function sendLeadToPipedrive(formData: FormData) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title: `Fahrzeuganfrage: ${brand} ${model} (${year})`,
-      value: `{"amount": ${retail}, "currency": "EUR" }`,
+      value: {
+      amount: retail,
+      currency: "EUR"
+    },
       person_id: personId,
     }),
   });
@@ -100,7 +103,7 @@ export async function submitContactForm(formData: FormData) {
         <p><strong>Modell:</strong> ${model}</p>
         <p><strong>Baujahr:</strong> ${year}</p>
         <p><strong>Kilometerstand:</strong> ${mileage} km</p>
-        <p><strong>Verkaufspreis:</strong> ${retail} km</p>
+        <p><strong>Wunschpreis:</strong> ${retail} €</p>
         
         ${message ? `<h3>Zusätzliche Informationen:</h3><p>${message}</p>` : ""}
         
@@ -130,7 +133,7 @@ export async function submitContactForm(formData: FormData) {
           <li><strong>Fahrzeug:</strong> ${brand} ${model}</li>
           <li><strong>Baujahr:</strong> ${year}</li>
           <li><strong>Kilometerstand:</strong> ${mileage} km</li>
-          <li><strong>Verkaufspreis:</strong> ${retail} km</li>
+          <li><strong>Wunschpreis:</strong> ${retail} €</li>
           <li><strong>Fotos:</strong> ${photos.length} hochgeladen</li>
         </ul>
         
