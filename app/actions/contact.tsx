@@ -13,6 +13,7 @@ async function sendLeadToPipedrive(formData: FormData) {
   const brand = formData.get("brand") as string;
   const model = formData.get("model") as string;
   const year = formData.get("year") as string;
+  const retail = formData.get("retail") as string;
 
   // 1. Person erstellen
   const personResponse = await fetch(`https://api.pipedrive.com/v1/persons?api_token=${PIPEDRIVE_API_TOKEN}`, {
@@ -34,6 +35,7 @@ async function sendLeadToPipedrive(formData: FormData) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       title: `Fahrzeuganfrage: ${brand} ${model} (${year})`,
+      value: `{"amount": ${retail}, "currency": "EUR" }`,
       person_id: personId,
     }),
   });
@@ -53,11 +55,12 @@ export async function submitContactForm(formData: FormData) {
     const model = formData.get("model") as string
     const year = formData.get("year") as string
     const mileage = formData.get("mileage") as string
+    const retail = formData.get("retail") as string
     const message = formData.get("message") as string
     const photos = formData.getAll("photos") as File[]
 
     // Validate required fields
-    if (!name || !phone || !email || !brand || !model || !year || !mileage) {
+    if (!name || !phone || !email || !brand || !model || !year || !mileage || !retail) {
       return { success: false, error: "Bitte füllen Sie alle Pflichtfelder aus." }
     }
 
@@ -97,6 +100,7 @@ export async function submitContactForm(formData: FormData) {
         <p><strong>Modell:</strong> ${model}</p>
         <p><strong>Baujahr:</strong> ${year}</p>
         <p><strong>Kilometerstand:</strong> ${mileage} km</p>
+        <p><strong>Verkaufspreis:</strong> ${retail} km</p>
         
         ${message ? `<h3>Zusätzliche Informationen:</h3><p>${message}</p>` : ""}
         
@@ -126,6 +130,7 @@ export async function submitContactForm(formData: FormData) {
           <li><strong>Fahrzeug:</strong> ${brand} ${model}</li>
           <li><strong>Baujahr:</strong> ${year}</li>
           <li><strong>Kilometerstand:</strong> ${mileage} km</li>
+          <li><strong>Verkaufspreis:</strong> ${retail} km</li>
           <li><strong>Fotos:</strong> ${photos.length} hochgeladen</li>
         </ul>
         
