@@ -13,7 +13,8 @@ async function sendLeadToPipedrive(formData: FormData) {
   const brand = formData.get("brand") as string;
   const model = formData.get("model") as string;
   const year = formData.get("year") as string;
-  const retail = formData.get("retail") as string;
+  const retail = parseFloat(formData.get("retail") as string);
+
 
   // 1. Person erstellen
   const personResponse = await fetch(`https://api.pipedrive.com/v1/persons?api_token=${PIPEDRIVE_API_TOKEN}`, {
