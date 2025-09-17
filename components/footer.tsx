@@ -23,27 +23,27 @@ export function Footer() {
               <h3 className="font-semibold text-foreground mb-4">Quick Links</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#home" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="/#home" className="text-muted-foreground hover:text-primary transition-colors">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#so-funktionierts" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="/#so-funktionierts" className="text-muted-foreground hover:text-primary transition-colors">
                     So funktioniert's
                   </a>
                 </li>
                 <li>
-                  <a href="#vorteile" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="/#vorteile" className="text-muted-foreground hover:text-primary transition-colors">
                     Vorteile
                   </a>
                 </li>
                 <li>
-                  <a href="#ueber-uns" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="/#ueber-uns" className="text-muted-foreground hover:text-primary transition-colors">
                     Über uns
                   </a>
                 </li>
                 <li>
-                  <a href="#kontakt" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="/#kontakt" className="text-muted-foreground hover:text-primary transition-colors">
                     Kontakt
                   </a>
                 </li>
