@@ -12,6 +12,9 @@ export const metadata = {
   description:
     "Verkaufen Sie Ihr Auto schnell und sicher über AVM. Wir verbinden Autoverkäufer mit seriösen Händlern in ganz Österreich. Kostenlose Bewertung, faire Preise, 5% Provision.",
   keywords: "Auto verkaufen, Autovermittlung, Österreich, Gebrauchtwagen, Autoverkauf, Autohändler",
+  icons: {
+    icon: "/assets/favicon.png", // oder /favicon.svg
+  },
   openGraph: {
     title: "AVM - Professionelle Autovermittlung in Österreich",
     description: "Verkaufen Sie Ihr Auto schnell und sicher über AVM. Kostenlose Bewertung, faire Preise.",
