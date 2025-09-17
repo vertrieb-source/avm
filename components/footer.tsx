@@ -15,7 +15,7 @@ export function Footer() {
                 AVM ist Ihr vertrauensvoller Partner für den Autoverkauf in Österreich. Wir verbinden Verkäufer mit
                 seriösen Händlern und sorgen für faire, transparente Geschäfte.
               </p>
-              <p className="text-xs text-muted-foreground">© 2024 AVM Autovermittlung GmbH. Alle Rechte vorbehalten.</p>
+              <p className="text-xs text-muted-foreground">© 2025 AVM Autovermittlung GmbH. Alle Rechte vorbehalten.</p>
             </div>
 
             {/* Quick Links */}
