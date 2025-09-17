@@ -1,6 +1,7 @@
 "use server"
 
 import { Resend } from "resend"
+import { Buffer } from "buffer"
 
 const resend = new Resend("re_dhpVkk1m_9dFUUtWF5AETPofydTQ3g5xi")
 
@@ -26,11 +27,24 @@ export async function submitContactForm(formData: FormData) {
       return { success: false, error: "Bitte laden Sie mindestens ein Foto Ihres Fahrzeugs hoch." }
     }
 
+    const attachments = await Promise.all(
+      photos.map(async (photo, index) => {
+        const arrayBuffer = await photo.arrayBuffer()
+        const buffer = Buffer.from(arrayBuffer)
+
+        return {
+          filename: `fahrzeug-foto-${index + 1}.${photo.name.split(".").pop()}`,
+          content: buffer,
+        }
+      }),
+    )
+
     // Send notification email to business
     await resend.emails.send({
       from: "AVM Kontaktformular <noreply@avmbroker.com>",
       to: "vertrieb@avmbroker.com",
       subject: `Neue Fahrzeug-Anfrage: ${brand} ${model}`,
+      attachments: attachments,
       html: `
         <h2>Neue Fahrzeug-Verkaufsanfrage</h2>
         
@@ -47,7 +61,7 @@ export async function submitContactForm(formData: FormData) {
         
         ${message ? `<h3>Zusätzliche Informationen:</h3><p>${message}</p>` : ""}
         
-        <p><strong>Anzahl hochgeladener Fotos:</strong> ${photos.length}</p>
+        <p><strong>Anzahl hochgeladener Fotos:</strong> ${photos.length} (siehe Anhänge)</p>
         
         <hr>
         <p><em>Diese Anfrage wurde über das Kontaktformular auf avmbroker.com gesendet.</em></p>
