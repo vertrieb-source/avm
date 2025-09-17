@@ -22,6 +22,7 @@ export function ContactSection() {
     model: "",
     year: "",
     mileage: "",
+    retail: "",
     message: "",
     agbAccepted: false,
     dsgvoAccepted: false,
@@ -98,6 +99,7 @@ export function ContactSection() {
           model: "",
           year: "",
           mileage: "",
+          retail: "",
           message: "",
           agbAccepted: false,
           dsgvoAccepted: false,
@@ -195,7 +197,7 @@ export function ContactSection() {
                             onChange={(e) => handleInputChange("phone", e.target.value)}
                             required
                             className="ml-2 flex-1"
-                            placeholder="676 4344905"
+                            placeholder="123 4567890"
                           />
                         </div>
                       </div>
@@ -324,7 +326,19 @@ export function ContactSection() {
                         </div>
                       )}
                     </div>
-
+<div>
+                          <Label htmlFor="retail">Verkaufspreis *</Label>
+                          <Input
+                            id="retail"
+                            name="retail"
+                            type="number"
+                            value={formData.retail}
+                            onChange={(e) => handleInputChange("retail", e.target.value)}
+                            required
+                            className="mt-1"
+                            placeholder="z.B. 2500€"
+                          />
+                        </div>
                     {/* Additional Message */}
                     <div>
                       <Label htmlFor="message">Zusätzliche Informationen</Label>
