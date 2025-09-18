@@ -15,7 +15,7 @@ const benefits = [
   {
     icon: Users,
     title: "Großes Händlernetzwerk",
-    description: "Über 500 geprüfte Autohändler in ganz Österreich sind Teil unseres Netzwerks.",
+    description: "Über 30+ geprüfte Autohändler in ganz Österreich sind Teil unseres Netzwerks.",
   },
   {
     icon: TrendingUp,
@@ -29,8 +29,8 @@ const benefits = [
   },
   {
     icon: MapPin,
-    title: "Österreichweit",
-    description: "Von Wien bis Vorarlberg - wir vermitteln in allen Bundesländern Österreichs.",
+    title: "Wien & Umgebung",
+    description: "Wir vermitteln in Wien, Baden und Mödling.",
   },
 ]
 
@@ -43,7 +43,7 @@ export function BenefitsSection() {
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Ihre Vorteile mit AVM</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-              Warum über 1.000 Kunden bereits erfolgreich ihr Auto über AVM verkauft haben.
+              Warum über 250+ Kunden bereits erfolgreich ihr Auto über AVM verkauft haben.
             </p>
           </div>
 
