@@ -15,7 +15,7 @@ export function Footer() {
                 AVM ist Ihr vertrauensvoller Partner für den Autoverkauf in Österreich. Wir verbinden Verkäufer mit
                 seriösen Händlern und sorgen für faire, transparente Geschäfte.
               </p>
-              <p className="text-xs text-muted-foreground">© 2025 AVM Autovermittlung GmbH. Alle Rechte vorbehalten.</p>
+              <p className="text-xs text-muted-foreground">© 2025 AVM e.U. Alle Rechte vorbehalten.</p>
             </div>
 
             {/* Quick Links */}
@@ -79,7 +79,7 @@ export function Footer() {
         <div className="py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-xs text-muted-foreground">
-              AVM Autovermittlung GmbH | UID: auf Anfrage | FN: auf Anfrage
+              AVM e.U
             </p>
             <p className="text-xs text-muted-foreground">Entwickelt mit ❤️ für österreichische Autoverkäufer</p>
           </div>
