@@ -38,7 +38,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center space-x-2 bg-card px-4 py-2 rounded-lg">
               <Euro className="h-5 w-5 text-primary" />
-              <span className="text-sm font-medium">Nur 5% Provision</span>
+              <span className="text-sm font-medium">Nur 3% Provision</span>
             </div>
           </div>
 

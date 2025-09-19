@@ -370,7 +370,7 @@ export function ContactSection() {
                           <a href="/agb" className="text-primary hover:underline">
                             AGB bzw. Widerrufsbelehrung
                           </a>{" "}
-                          einschließlich der 5% Provision bei erfolgreichem Verkauf. *
+                          einschließlich der 3% Provision bei erfolgreichem Verkauf. *
                         </Label>
                       </div>
                       

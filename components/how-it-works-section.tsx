@@ -20,7 +20,7 @@ const steps = [
   {
     icon: Euro,
     title: "Provision zahlen",
-    description: "Nach erfolgreichem Verkauf zahlen Sie uns eine faire Provision von nur 5%.",
+    description: "Nach erfolgreichem Verkauf zahlen Sie uns eine faire Provision von nur 3%.",
   },
 ]
 
