@@ -4,8 +4,15 @@ import { Resend } from "resend"
 import { Buffer } from "buffer"
 import fs from "fs";
 
-const agbPdf = fs.readFileSync("files/agb.pdf").toString("base64");
-const musterPdf = fs.readFileSync("files/muster.pdf").toString("base64");
+async function loadPdfBase64(filename: string) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/files/${filename}`);
+  const arrayBuffer = await res.arrayBuffer();
+  return Buffer.from(arrayBuffer).toString("base64");
+}
+
+const agbPdf = await loadPdfBase64("agb.pdf");
+const musterPdf = await loadPdfBase64("muster.pdf");
+
 const resend = new Resend("re_dhpVkk1m_9dFUUtWF5AETPofydTQ3g5xi")
 const PIPEDRIVE_API_TOKEN = "01e9696a770b7018d9529509f74abe4c92a334cd";
 
@@ -150,16 +157,8 @@ export async function submitContactForm(formData: FormData) {
 
       `,
       attachments: [
-    {
-      name: "AVM_AGB.pdf", // Dateiname für den Anhang
-      type: "application/pdf", // MIME-Typ
-      data: agbPdf, // Base64-codierte Datei
-    },
-    {
-      name: "Musterformular.pdf",
-      type: "application/pdf",
-      data: musterPdf,
-    },
+    { name: "AGB.pdf", type: "application/pdf", data: agbPdf },
+    { name: "Musterformular.pdf", type: "application/pdf", data: musterPdf },
   ],
     })
   await sendLeadToPipedrive(formData);
