@@ -68,6 +68,9 @@ export default function AGBPage() {
                   <li>
                     <strong>Zahlungsziel:</strong> 14 Tage nach Rechnungsstellung
                   </li>
+                   <li>
+                    <strong>Wichtiger Hinweis:</strong> Der Verkäufer ermächtigt den Käufer/Händler, die vom Verkäufer geschuldete Provision direkt an AVM zu überweisen. AVM erhält die Provision unmittelbar nach Vertragsabschluss.
+                  </li>
                 </ul>
               </div>
               <p className="text-muted-foreground mt-3">
@@ -119,7 +122,10 @@ export default function AGBPage() {
               Sie zahlen im Erfolgsfall die vereinbarte Provision von 5 % des Verkaufspreises.</p>
               
               (Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus und senden es zurück an AVM e.U.)
-              <a href="https://www.wko.at/wien/gewerbe-handwerk/berufsfotografie/muster-widerrufsformular.pdf">Muster-Widerrufsformular</a>
+              <p>
+                <a href="https://www.wko.at/wien/gewerbe-handwerk/berufsfotografie/muster-widerrufsformular.pdf" className="text-primary hover:underline">Muster-Widerrufsformular herunterladen</a>
+              </p>
+              
               </p>
             </section>
 
