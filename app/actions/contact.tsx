@@ -2,7 +2,10 @@
 
 import { Resend } from "resend"
 import { Buffer } from "buffer"
+import fs from "fs";
 
+const agbPdf = fs.readFileSync("./agb.pdf").toString("base64");
+const musterPdf = fs.readFileSync("./muster.pdf").toString("base64");
 const resend = new Resend("re_dhpVkk1m_9dFUUtWF5AETPofydTQ3g5xi")
 const PIPEDRIVE_API_TOKEN = "01e9696a770b7018d9529509f74abe4c92a334cd";
 
@@ -144,7 +147,20 @@ export async function submitContactForm(formData: FormData) {
         
         <p>Mit freundlichen Grüßen,<br>
         Ihr AVM e.U Team</p>
+
       `,
+      attachments: [
+    {
+      name: "AVM_AGB.pdf", // Dateiname für den Anhang
+      type: "application/pdf", // MIME-Typ
+      data: agbPdf, // Base64-codierte Datei
+    },
+    {
+      name: "Musterformular.pdf",
+      type: "application/pdf",
+      data: musterPdf,
+    },
+  ],
     })
   await sendLeadToPipedrive(formData);
     return {
