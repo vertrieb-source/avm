@@ -141,7 +141,7 @@ export async function submitContactForm(formData: FormData) {
          <p>Hier finden Sie unsere Unterlagen:</p>
   <ul>
     <li><a href="https://www.avmbroker.com/files/agb.pdf">AGB & Widerrufsbelehrung herunterladen</a></li>
-    <li><a href="https://www.avmbroker/files/muster.pdf">Musterformular herunterladen</a></li>
+    <li><a href="https://www.avmbroker.com/files/muster.pdf">Musterformular herunterladen</a></li>
   </ul>
         <p>Bei Fragen erreichen Sie uns unter:</p>
         <p><strong>Telefon:</strong> +43 676 4344905<br>
