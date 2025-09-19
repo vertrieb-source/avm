@@ -99,17 +99,27 @@ export default function AGBPage() {
             <section>
               <h2 className="text-xl font-semibold mb-3">§ 6 Haftung</h2>
               <p className="text-muted-foreground">
-                AVM haftet nur für Vorsatz und grobe Fahrlässigkeit. Die Haftung für leichte Fahrlässigkeit ist
-                ausgeschlossen, soweit nicht Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit oder
-                aus der Verletzung wesentlicher Vertragspflichten resultieren.
+                Der Vermittler erbringt seine Leistungen ausschließlich digital, insbesondere durch Bewertung, Präsentation und Vermittlung von Fahrzeugen auf Grundlage der vom Verkäufer bereitgestellten Informationen und Unterlagen.
               </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold mb-3">§ 7 Widerrufsrecht</h2>
+              <h2 className="text-xl font-semibold mb-3">§ 7 Widerrufsbelehrung</h2>
               <p className="text-muted-foreground">
-                Verbrauchern steht ein gesetzliches Widerrufsrecht zu. Die Widerrufsfrist beträgt vierzehn Tage ab
-                Vertragsschluss. Detaillierte Informationen zum Widerrufsrecht werden separat zur Verfügung gestellt.
+              <strong>Widerrufsrecht</strong>  
+              <p>Sie haben das Recht, binnen 14 Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt 14 Tage ab dem Tag des Vertragsabschlusses (d. h. sobald Sie den Auftrag zur Fahrzeugvermittlung erteilt haben). 
+              Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (AVM e.U., E-Mail: vertrieb@avmbroker.com) mittels einer klaren Erklärung (per E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren.
+              Sie können dafür das Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.</p>
+
+
+              <strong>Folgen des Widerrufs</strong>
+              <p>Wenn Sie diesen Vertrag widerrufen, haben wir alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen 14 Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf eingegangen ist.</p>
+              <strong>Besondere Hinweise:</strong>
+              <p>Sie haben ausdrücklich zugestimmt, dass AVM vor Ablauf der Widerrufsfrist mit der Vermittlung beginnt. Dadurch erlischt Ihr Widerrufsrecht bei vollständiger Erfüllung unserer Dienstleistung, d. h. sobald AVM erfolgreich einen Käufer für Ihr Fahrzeug vermittelt hat.
+              Sie zahlen im Erfolgsfall die vereinbarte Provision von 5 % des Verkaufspreises.</p>
+              
+              (Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus und senden es zurück an AVM e.U.)
+              <a href="https://www.wko.at/wien/gewerbe-handwerk/berufsfotografie/muster-widerrufsformular.pdf">Muster-Widerrufsformular</a>
               </p>
             </section>
 
