@@ -14,13 +14,13 @@ export const metadata = {
   keywords: "Auto verkaufen, Autovermittlung, Österreich, Gebrauchtwagen, Autoverkauf, Autohändler",
   icons: {
     icon: [
-      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
-      { url: "/favicon.svg", type: "image/svg+xml" }
+      { url: "/assets/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/assets/favicon.svg", type: "image/svg+xml" }
     ],
-    shortcut: "/favicon.ico",                 // legacy shortcut icon
-    apple: "/apple-touch-icon.png",           // iOS home screen icon
+    shortcut: "/assets/favicon.ico",                 // legacy shortcut icon
+    apple: "/assets/apple-touch-icon.png",           // iOS home screen icon
   },
-  manifest: "/site.webmanifest",                // optional PWA manifest
+  manifest: "/assets/site.webmanifest",                // optional PWA manifest
   openGraph: {
     title: "AVM - Professionelle Autovermittlung in Österreich",
     description: "Verkaufen Sie Ihr Auto schnell und sicher über AVM. Kostenlose Bewertung, faire Preise.",
