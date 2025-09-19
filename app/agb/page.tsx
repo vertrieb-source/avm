@@ -57,7 +57,7 @@ export default function AGBPage() {
                 <h3 className="font-semibold text-primary mb-2">Provisionsregelung:</h3>
                 <ul className="space-y-2 text-muted-foreground">
                   <li>
-                    <strong>Provision:</strong> 5% des Verkaufspreises (netto)
+                    <strong>Provision:</strong> 3% des Verkaufspreises (netto)
                   </li>
                   <li>
                     <strong>Mindestprovision:</strong> €200,00 (netto)
@@ -119,7 +119,7 @@ export default function AGBPage() {
               <p>Wenn Sie diesen Vertrag widerrufen, haben wir alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen 14 Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf eingegangen ist.</p>
               <strong>Besondere Hinweise:</strong>
               <p>Sie haben ausdrücklich zugestimmt, dass AVM vor Ablauf der Widerrufsfrist mit der Vermittlung beginnt. Dadurch erlischt Ihr Widerrufsrecht bei vollständiger Erfüllung unserer Dienstleistung, d. h. sobald AVM erfolgreich einen Käufer für Ihr Fahrzeug vermittelt hat.
-              Sie zahlen im Erfolgsfall die vereinbarte Provision von 5 % des Verkaufspreises.</p>
+              Sie zahlen im Erfolgsfall die vereinbarte Provision von 3% des Verkaufspreises.</p>
               
               (Wenn Sie den Vertrag widerrufen wollen, füllen Sie bitte dieses Formular aus und senden es zurück an AVM e.U.)
               <p>
