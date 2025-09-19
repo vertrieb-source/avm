@@ -4,8 +4,14 @@ export const metadata = {
   title: "AVM - Impressum",
   keywords: "Auto verkaufen, Autovermittlung, Österreich, Gebrauchtwagen, Autoverkauf, Autohändler",
   icons: {
-    icon: "/assets/favicon.png", // oder /favicon.svg
+    icon: [
+      { url: "/assets/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/assets/favicon.svg", type: "image/svg+xml" }
+    ],
+    shortcut: "/assets/favicon.ico",                 // legacy shortcut icon
+    apple: "/assets/apple-touch-icon.png",           // iOS home screen icon
   },
+  manifest: "/assets/site.webmanifest",
   openGraph: {
     title: "AVM - Professionelle Autovermittlung in Österreich",
     description: "Verkaufen Sie Ihr Auto schnell und sicher über AVM. Kostenlose Bewertung, faire Preise.",
