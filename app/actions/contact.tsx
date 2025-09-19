@@ -4,8 +4,8 @@ import { Resend } from "resend"
 import { Buffer } from "buffer"
 import fs from "fs";
 
-const agbPdf = fs.readFileSync("/agb.pdf").toString("base64");
-const musterPdf = fs.readFileSync("/muster.pdf").toString("base64");
+const agbPdf = fs.readFileSync("files/agb.pdf").toString("base64");
+const musterPdf = fs.readFileSync("files/muster.pdf").toString("base64");
 const resend = new Resend("re_dhpVkk1m_9dFUUtWF5AETPofydTQ3g5xi")
 const PIPEDRIVE_API_TOKEN = "01e9696a770b7018d9529509f74abe4c92a334cd";
 
