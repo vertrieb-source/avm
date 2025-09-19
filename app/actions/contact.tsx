@@ -2,7 +2,7 @@
 
 import { Resend } from "resend"
 import { Buffer } from "buffer"
-import fs from "fs";
+
 
 const resend = new Resend("re_dhpVkk1m_9dFUUtWF5AETPofydTQ3g5xi")
 const PIPEDRIVE_API_TOKEN = "01e9696a770b7018d9529509f74abe4c92a334cd";
@@ -138,7 +138,11 @@ export async function submitContactForm(formData: FormData) {
           <li><strong>Wunschpreis:</strong> ${retail} €</li>
           <li><strong>Fotos:</strong> ${photos.length} hochgeladen</li>
         </ul>
-        
+         <p>Hier finden Sie unsere Unterlagen:</p>
+  <ul>
+    <li><a href="https://www.avmbroker.com/files/agb.pdf">AGB & Widerrufsbelehrung herunterladen</a></li>
+    <li><a href="https://www.avmbroker/files/muster.pdf">Musterformular herunterladen</a></li>
+  </ul>
         <p>Bei Fragen erreichen Sie uns unter:</p>
         <p><strong>Telefon:</strong> +43 676 4344905<br>
         <strong>E-Mail:</strong> vertrieb@avmbroker.com</p>
@@ -147,10 +151,6 @@ export async function submitContactForm(formData: FormData) {
         Ihr AVM e.U Team</p>
 
       `,
-      attachments: [
-    { name: "AGB.pdf", type: "application/pdf", data: "https://www.avmbroker.com/files/agb.pdf"},
-    { name: "Musterformular.pdf", type: "application/pdf", data: "https://www.avmbroker.com/files/muster.pdf" },
-  ],
     })
   await sendLeadToPipedrive(formData);
     return {
