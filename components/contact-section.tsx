@@ -366,7 +366,7 @@ export function ContactSection() {
                         <Label htmlFor="agb" className="text-sm text-pretty">
                           Ich akzeptiere die{" "}
                           <a href="/agb" className="text-primary hover:underline">
-                            Allgemeinen Geschäftsbedingungen bzw. Widerrufsbelehrung
+                            AGB bzw. Widerrufsbelehrung
                           </a>{" "}
                           einschließlich der 5% Provision bei erfolgreichem Verkauf. *
                         </Label>
