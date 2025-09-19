@@ -25,6 +25,7 @@ export function ContactSection() {
     retail: "",
     message: "",
     agbAccepted: false,
+    wdbAccepted: false,
     dsgvoAccepted: false,
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -102,6 +103,7 @@ export function ContactSection() {
           retail: "",
           message: "",
           agbAccepted: false,
+          wdbAccepted: false,
           dsgvoAccepted: false,
         })
         setSelectedFiles([])
@@ -371,6 +373,20 @@ export function ContactSection() {
                           einschließlich der 5% Provision bei erfolgreichem Verkauf. *
                         </Label>
                       </div>
+                      
+                      <div className="flex items-start space-x-2">
+                        <Checkbox
+                          id="wdb"
+                          name="wdbAccepted"
+                          checked={formData.wdbAccepted}
+                          onCheckedChange={(checked) => handleInputChange("wdbAccepted", checked as boolean)}
+                          required
+                        />
+                        <Label htmlFor="wdb" className="text-sm text-pretty">
+                          Ich stimme ausdrücklich zu, dass AVM vor Ablauf der Widerrufsfrist mit der Vermittlung beginnt. 
+Mir ist bekannt, dass ich mein Widerrufsrecht bei vollständiger Erfüllung verliere.
+                        </Label>
+                      </div>
 
                       <div className="flex items-start space-x-2">
                         <Checkbox
@@ -395,7 +411,7 @@ export function ContactSection() {
                       size="lg"
                       className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
                       disabled={
-                        isSubmitting || !formData.agbAccepted || !formData.dsgvoAccepted || selectedFiles.length === 0
+                        isSubmitting || !formData.agbAccepted || !formData.wdbAccepted || !formData.dsgvoAccepted || selectedFiles.length === 0
                       }
                     >
                       {isSubmitting ? "Wird gesendet..." : "Kostenlose Bewertung anfordern"}
