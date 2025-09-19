@@ -384,7 +384,7 @@ export function ContactSection() {
                         />
                         <Label htmlFor="wdb" className="text-sm text-pretty">
                           Ich stimme ausdrücklich zu, dass AVM vor Ablauf der Widerrufsfrist mit der Vermittlung beginnt. 
-Mir ist bekannt, dass ich mein Widerrufsrecht bei vollständiger Erfüllung verliere.
+Mir ist bekannt, dass ich mein Widerrufsrecht bei vollständiger Erfüllung verliere. *
                         </Label>
                       </div>
 
