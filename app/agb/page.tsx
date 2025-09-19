@@ -60,7 +60,7 @@ export default function AGBPage() {
                     <strong>Provision:</strong> 3% des Verkaufspreises (netto)
                   </li>
                   <li>
-                    <strong>Mindestprovision:</strong> €200,00 (netto)
+                    <strong>Mindestprovision:</strong> €100,00 (netto)
                   </li>
                   <li>
                     <strong>Fälligkeit:</strong> Bei erfolgreichem Vertragsabschluss
